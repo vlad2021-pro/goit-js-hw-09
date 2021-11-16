@@ -13,12 +13,15 @@ function getRandomHexColor() {
 
 
 const onSwitchTheme = e => {
-  e.target.dissabled = true
-  timerId = setInterval(() => {refs.bodyEl.style.backgroundColor = getRandomHexColor()  }, 1000)
+  e.target.disabled = true
+  timerId = setInterval(() => {refs.bodyEl.style.backgroundColor = getRandomHexColor ()}, 1000)
 }
-// console.log(e.target)
-// const onSwitchTheme = e => { }
+
+const offSwitchTheme = e => {
+  refs.startBtn.disabled = false
+  clearInterval (timerId)
+}
 
 
 refs.startBtn.addEventListener('click', onSwitchTheme)
-// refs.stopBtn.addEventListener('click', offSwitchTheme)
+refs.stopBtn.addEventListener('click', offSwitchTheme)
